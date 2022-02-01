@@ -1,0 +1,67 @@
+/* font-family: 'Roboto', sans-serif; */
+
+/*-- Geral --*/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family:'Roboto', sans-serif ;
+    background-color: #EEF9BF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*-- MOBILE --*/
+/*-- Cabeçalho --*/
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+header h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #75B79E;
+}
+
+/*-- Cartas --*/
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 47px;
+    width: 75%;
+}
+
+.carta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #A7E9AF;
+    width: 117px;
+    height: 146px;
+    border-radius: 5px;
+    margin: 0 17px 34px 17px;
+}
+
+.carta img {
+    width: 100px;
+}
+
+/*-- DESKTOP --*/
+@media screen and (min-width: 614px) {
+
+    /*-- Cabeçalho --*/
+    header { 
+        flex-direction: row;
+    }
+
+    header h1 {
+        font-size: 56px;
+    }
+}
