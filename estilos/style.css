@@ -64,17 +64,17 @@ main {
     transform-style: preserve-3d;
   }
 
-.back-face {
+.verso {
     transform: rotateY(180deg);
-  }
+}
 
-.carta:hover .back-face {
+.girarParaFrente {
     transform: rotateY(0deg);
-  }
+}
 
-.carta:hover .front-face {
+.girarParaTras {
     transform: rotateY(-180deg);
-  }
+}
 
 /*-- DESKTOP --*/
 @media screen and (min-width: 614px) {
