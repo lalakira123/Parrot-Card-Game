@@ -12,7 +12,7 @@ let caixaComparativa = []
 let contadorJogada = 0
 let cartaVirada = 0
 let cartaCombinada = 0
-let jogando = false
+let carregando = false
 
 function distribuirCartas() {
     //Escolhe numero de cartas
@@ -48,19 +48,24 @@ function distribuirCartas() {
 } 
 
 function jogarRodada(cartaClicada) {
-    if (cartaClicada.querySelector(".carta .girarParaTras") === null && cartaVirada <= 2 && jogando == false) {
-        caixaComparativa[cartaVirada] = cartaClicada.innerHTML
-        caixaComparativa[cartaVirada + 2] = cartaClicada
+    if (cartaClicada.querySelector(".carta .girarParaTras") === null && cartaVirada <= 2 && carregando==false) {
+        caixaComparativa[cartaVirada] = cartaClicada.innerHTML //Com innerHTML da para comparar
+        caixaComparativa[cartaVirada + 2] = cartaClicada // Mas não da para usar o querySelector
         contadorJogada++
         cartaVirada++
+        carregando = true
         virarCarta(cartaClicada)
-        if (caixaComparativa[0] == caixaComparativa[1] && cartaVirada === 2) {
+        setTimeout(carregarJogo, 1000)
+        if (caixaComparativa[0] === caixaComparativa[1] && cartaVirada === 2) {
             cartaVirada = 0
             caixaComparativa = []
             cartaCombinada++
+            carregando = true
+            setTimeout(carregarJogo, 500)
             setTimeout(finalizarJogo, 1000)
         } else if (caixaComparativa[0] !== caixaComparativa[1] && cartaVirada == 2) {
             cartaVirada = 0
+            carregando = true
             setTimeout(desvirarCarta, 1000)
         }
     }
@@ -80,6 +85,11 @@ function desvirarCarta() {
     caixaComparativa[3].children[1].classList.toggle("girarParaTras")
     caixaComparativa[3].children[0].classList.toggle("verso")
     caixaComparativa = []
+    setTimeout(carregarJogo, 500)
+}
+
+function carregarJogo() {
+    carregando = false
 }
 
 function finalizarJogo() {
