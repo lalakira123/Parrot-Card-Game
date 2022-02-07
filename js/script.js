@@ -1,4 +1,4 @@
-const cartas = []
+let cartas = []
 const frenteCartas = [
     "imagens/bobrossparrot.gif",
     "imagens/explodyparrot.gif",
@@ -95,7 +95,19 @@ function carregarJogo() {
 function finalizarJogo() {
     if (maximaCombinacao == cartaCombinada) {
         alert(`Você ganhou em ${contadorJogada} jogadas!`)
+        reiniciarJogo()
     }
+}
+
+function reiniciarJogo() {
+    let reinicio = prompt("Gostaria de reiniciar a partida? s ou n")
+    if (reinicio == "s" || reinicio == "sim" || reinicio == "S" || reinicio == "Sim") {
+        document.querySelector("main").innerHTML = " "
+        contadorJogada = 0
+        cartaCombinada = 0
+        cartas = []
+        distribuirCartas()
+    } 
 }
 
 function comparador() { 
